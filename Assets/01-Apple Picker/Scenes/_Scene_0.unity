@@ -312,9 +312,17 @@ PrefabInstance:
       propertyPath: applePrefab
       value: 
       objectReference: {fileID: 3372187888608573193, guid: 7a6fc2b507f66254d84bb08151fcdfe1, type: 3}
+    - target: {fileID: 943454644436355414, guid: 34267bea78c8233409f33227e13f720e, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 943454645282434904, guid: 34267bea78c8233409f33227e13f720e, type: 3}
       propertyPath: m_Name
       value: AppleTree
+      objectReference: {fileID: 0}
+    - target: {fileID: 943454645282434904, guid: 34267bea78c8233409f33227e13f720e, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 943454645282434905, guid: 34267bea78c8233409f33227e13f720e, type: 3}
       propertyPath: m_RootOrder
@@ -363,6 +371,10 @@ PrefabInstance:
     - target: {fileID: 943454645282434910, guid: 34267bea78c8233409f33227e13f720e, type: 3}
       propertyPath: m_IsKinematic
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 943454645518574397, guid: 34267bea78c8233409f33227e13f720e, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34267bea78c8233409f33227e13f720e, type: 3}
