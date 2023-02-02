@@ -123,27 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &25860074 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 943454645282434904, guid: 34267bea78c8233409f33227e13f720e, type: 3}
-  m_PrefabInstance: {fileID: 943454645257959602}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &25860077
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 25860074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 122d8a65b2ed5f046963c361f697b6d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  applePrefab: {fileID: 0}
-  speed: 1
-  leftAndRightEdge: 24
-  appleDropDelay: 1
 --- !u!1 &237501192
 GameObject:
   m_ObjectHideFlags: 0
