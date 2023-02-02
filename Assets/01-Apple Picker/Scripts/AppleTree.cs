@@ -5,7 +5,6 @@ using UnityEngine;
 public class AppleTree : MonoBehaviour
 {
     [Header("Inscribed")]
-    // a
     // Prefab for instantiating apples
     public GameObject applePrefab;
 
@@ -31,6 +30,10 @@ public class AppleTree : MonoBehaviour
         pos.x += speed * Time.deltaTime;
         transform.position = pos;
         // Changing Direction
-        // b
+        if (pos.x < -leftAndRightEdge){
+            speed = Mathf.Abs(speed); // Move Right
+        } else if (pos.x > leftAndRightEdge){
+            speed = -Mathf.Abs(speed); // Move left
+        }
     }
 }
