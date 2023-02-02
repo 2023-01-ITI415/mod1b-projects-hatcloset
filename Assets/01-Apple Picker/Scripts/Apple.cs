@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Apple : MonoBehaviour
 {
-    public static float bottomT = -20f;
+    public static float bottomY = -20f;
 
     void Update()
     {
