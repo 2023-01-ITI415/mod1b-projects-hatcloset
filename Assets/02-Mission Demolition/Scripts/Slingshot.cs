@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Slingshot : MonoBehaviour
 {
+    public GameObject launchPoint;
     void Awake()
     {
         Transform launchPointTrans = transform.Find("LaunchPoint");
