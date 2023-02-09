@@ -20,10 +20,22 @@ public class FollowCam : MonoBehaviour
 
     void FixedUpdate ()
     {
-        if (POI == null) return;
+        Vector3 destination = Vector3.zero;
 
-        // Get the position of the poi
-        Vector3 destination = POI.transform.position;
+        if (POI != null)
+        {
+            // If the POI has a Rigidbody, check to see if it is sleeping
+            Rigidbody poiRigid = POI.GetComponent<Rigidbody>();
+            if ((poiRigid != null) && (poiRigid.IsSleeping()))
+            {
+                POI = null;
+            }
+        }
+
+        if ( POI != null)
+        {
+            destination = POI.transform.position;
+        }
         destination = Vector3.Lerp(transform.position, destination, easing);
         // Limit the minimum values of destination.x & destination.y
         destination.x = Mathf.Max(minXY.x, destination.x);
