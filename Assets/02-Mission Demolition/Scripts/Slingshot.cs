@@ -11,6 +11,6 @@ public class Slingshot : MonoBehaviour
 
     void OnMouseExit()
     {
-        print("Slingshot:OnMouseExit()")
+        print("Slingshot:OnMouseExit()");
     }
 }
