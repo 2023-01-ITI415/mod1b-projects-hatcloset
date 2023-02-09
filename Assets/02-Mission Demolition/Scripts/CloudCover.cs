@@ -22,8 +22,9 @@ public class CloudCover : MonoBehaviour
         for (int i=0; i<numClouds; i++)
         {
             // Create a new GameObject and get its Transform
-            cloudsGO = new GameObject();
-            cloudTrans = cloudGO.AddComponent<SpriteRenderer>();
+            cloudGO = new GameObject();
+            cloudTrans = cloudGO.transform;
+            sRend = cloudGO.AddComponent<SpriteRenderer>();
 
             int spriteNum = Random.Range(0, cloudSprites.Length);
             sRend.sprite = cloudSprites[spriteNum];
@@ -33,7 +34,7 @@ public class CloudCover : MonoBehaviour
             cloudTrans.SetParent(parentTrans, true);
 
             scaleMult = Random.Range(scaleRange.x, scaleRange.y);
-            cloudTrans.localScale = Vecotr3.one * scaleMult;
+            cloudTrans.localScale = Vector3.one * scaleMult;
         }
     }
 
