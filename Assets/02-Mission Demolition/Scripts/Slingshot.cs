@@ -55,11 +55,11 @@ public class Slingshot : MonoBehaviour
         // Get the current mouse position in 2D screen coordinates
         Vector3 mousePos2D = Input.mousePosition;
         mousePos2D.z = -Camera.main.transform.position.z;
-        Vector3 mousePos3D = Camera.main.ScreenToWorldPoint(mousePos2d);
+        Vector3 mousePos3D = Camera.main.ScreenToWorldPoint(mousePos2D);
         // Find the delta from the launchPos to the mousePos3D
         Vector3 mouseDelta = mousePos3D -launchPos;
         // Limit mouseDelta to the radius of the Slingshot SphereCollider
-        float maxMagnitute = this.GetComponent<SphereCollider>().radius;
+        float maxMagnitude = this.GetComponent<SphereCollider>().radius;
         if (mouseDelta.magnitude > maxMagnitude)
         {
             mouseDelta.Normalize();
