@@ -7,6 +7,7 @@ public class ProjectileLine : MonoBehaviour
 {
     static List<ProjectileLine> PROJ_LINES = new List<ProjectileLine>();
     private const float DIM_MULT = 0.75f;
+
     private LineRenderer _line;
     private bool _drawing = true;
     private Projectile _projectile;

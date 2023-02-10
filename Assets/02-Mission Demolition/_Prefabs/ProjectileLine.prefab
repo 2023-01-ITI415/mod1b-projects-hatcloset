@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5863119534588769020}
   - component: {fileID: 5863119534588769021}
+  - component: {fileID: 5620685485548673830}
   m_Layer: 0
   m_Name: ProjectileLine
   m_TagString: Untagged
@@ -78,7 +79,7 @@ LineRenderer:
   - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 4
+    widthMultiplier: 0.25
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -92,7 +93,7 @@ LineRenderer:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.045977015
+        time: 1
         value: 1
         inSlope: 0
         outSlope: 0
@@ -140,3 +141,15 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!114 &5620685485548673830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5863119534588769022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa57c80f7abe5de47afe4ea0aa9f087e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
