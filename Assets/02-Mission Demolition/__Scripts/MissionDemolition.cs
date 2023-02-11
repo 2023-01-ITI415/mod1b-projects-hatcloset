@@ -25,7 +25,7 @@ public class MissionDemolition : MonoBehaviour
     public int levelMax;
     public int shotsTaken;
     public GameObject castle;
-    public GameMode mode = GamemMode.idle;
+    public GameMode mode = GameMode.idle;
     public string showing = "Show Slingshot";// FollowCam mode
 
     void Start()
@@ -66,4 +66,40 @@ public class MissionDemolition : MonoBehaviour
         uitShots.text = "Shots Taken: " + shotsTaken;
     }
 
+    void Update()
+    {
+        UpdateGUI();
+
+        // Check for level end
+        if ((mode == GameMode.playing) && Goal.goalMet)
+        {
+            // Change mode to stop checking for level end
+            mode = GameMode.levelEnd;
+
+            // Start the next level in 2 seconds
+            Invoke("NextLevel", 2f);
+        }
+    }
+
+    void NextLevel()
+    {
+        level++;
+        if (level == levelMax)
+        {
+            level = 0;
+            shotsTaken = 0;
+        }
+        StartLevel();
+    }
+
+    // Static method that allows code anywhere to increment shotsTaken
+    static public void SHOT_FIRED()
+    {
+        S.shotsTaken++;
+    }
+    // Static method that allows code anywhere to get a reference to S.castle
+    static public GameObject GET_CASTLE()
+    {
+        return S.castle;
+    }
 }
