@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/00-Scenes/SceneMain.unity
     guid: afc5006038216427399d86bb793f42d6
   - enabled: 0
@@ -14,10 +14,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/00-Scenes/Main-MissionDemolition.unity
     guid: 36a4f7af764a74bfab5a5ff20375bcdb
-  - enabled: 0
-    path: Assets/00-Scenes/Main-Prototype 1.unity
+  - enabled: 1
+    path: Assets/00-Scenes/Main-Prototype.unity
     guid: 84930580229bb4f138179e160aab9b89
   - enabled: 0
     path: Assets/01-Apple Picker/Scenes/Main-ApplePicker.unity
     guid: 37e588db58d12c74ca916a2dca89a36a
+  - enabled: 1
+    path: Assets/00-Scenes/Main-ApplePicker.unity
+    guid: cdb90670b57478d458ba73bb9dedb750
   m_configObjects: {}
