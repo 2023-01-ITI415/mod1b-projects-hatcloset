@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Apple
+  - JumpGround
   layers:
   - Default
   - TransparentFX

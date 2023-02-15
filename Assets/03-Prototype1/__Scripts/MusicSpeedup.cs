@@ -24,8 +24,8 @@ public class MusicSpeedup : MonoBehaviour
     void FixedUpdate()
     {
         // Detect distance between player and lava
-        Vector3 playerpos = player.transform.position;
-        Vector3 lavapos = lava.transform.position;
+        Vector2 playerpos = player.transform.position;
+        Vector2 lavapos = lava.transform.position;
         if (playerpos.y < lavapos.y + MinPos) PitchUp();
         if (playerpos.y > lavapos.y + MaxPos) PitchDown();
     }
