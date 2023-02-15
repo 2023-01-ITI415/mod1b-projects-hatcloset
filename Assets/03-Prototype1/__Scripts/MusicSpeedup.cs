@@ -6,44 +6,47 @@ public class MusicSpeedup : MonoBehaviour
 {
     [Header("Inscribed")]
     public AudioSource audioSource;
+    public AudioClip audioIntro;
     public GameObject player;
     public GameObject lava;
-    public float MinProx;
-    public float MaxProx;
+    public float MinPos = 14;
+    public float MaxPos = 16;
 
     void Start()
     {
         // Set initial pitch of song
         audioSource.pitch = 1.00f;
+        // Play the intro into the loop
+        audioSource.PlayOneShot(audioIntro);
+        audioSource.PlayScheduled(AudioSettings.dspTime + audioIntro.length);
     }
 
     void FixedUpdate()
     {
-        if (player.transform.position.y < lava.transform.position.y + MinProx)
-        {
-            PitchUp();
-        }
-        if (player.transform.position.y > lava.transform.position.y + MaxProx)
-        {
-            PitchDown();
-        }
+        // Detect distance between player and lava
+        Vector3 playerpos = player.transform.position;
+        Vector3 lavapos = lava.transform.position;
+        if (playerpos.y < lavapos.y + MinPos) PitchUp();
+        if (playerpos.y > lavapos.y + MaxPos) PitchDown();
     }
 
     void PitchUp()
     {
-
+        // Return if the pitch is correct
         if (audioSource.pitch == 1.08f) return;
         if (audioSource.pitch < 1.08f)
         {
-            audioSource.pitch += 0.005f;
+            audioSource.pitch += 0.0025f;
         }
     }
+
     void PitchDown()
     {
+        // Return if the pitch is correct
         if (audioSource.pitch == 1.00f) return;
         if (audioSource.pitch > 1.00f)
         {
-            audioSource.pitch -= 0.005f;
+            audioSource.pitch -= 0.0025f;
         }
     }
 }
