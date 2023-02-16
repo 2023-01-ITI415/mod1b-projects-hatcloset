@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip coinSound;
     public AudioClip deathSound;
+    public AudioClip dashSound;
 
     void Start()
     {
@@ -32,12 +33,18 @@ public class Player : MonoBehaviour
             rb.velocity = new Vector2(dirX * 10f, rb.velocity.y);
 
             // Jump once when W or Up are pressed
+            if (Input.GetButton("Duck"))
+            {
+                rb.velocity = new Vector2(rb.velocity.x, -10f);
+                audioSource.PlayOneShot(dashSound);
+            }
             if (jumpStored == true)
             {
                 if (Input.GetButtonDown("Jump"))
                 {
                     rb.velocity = new Vector2(rb.velocity.x, 10f);
                     jumpStored = false;
+                    audioSource.PlayOneShot(dashSound);
                 }
             }
         }
