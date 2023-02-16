@@ -6,6 +6,7 @@ public class MusicSpeedup : MonoBehaviour
 {
     [Header("Inscribed")]
     public AudioSource audioSource;
+    public AudioSource alarmSource;
     public AudioClip audioIntro;
     public GameObject player;
     public GameObject lava;
@@ -17,6 +18,8 @@ public class MusicSpeedup : MonoBehaviour
         // Set initial pitch and volume of song
         audioSource.pitch = 1.00f;
         audioSource.volume = 1.00f;
+        // Mute alarmSource
+        alarmSource.volume = 0.00f;
         // Play the intro into the loop
         audioSource.PlayOneShot(audioIntro);
         audioSource.PlayScheduled(AudioSettings.dspTime + audioIntro.length);
@@ -27,8 +30,15 @@ public class MusicSpeedup : MonoBehaviour
         // Detect distance between player and lava
         Vector2 playerpos = player.transform.position;
         Vector2 lavapos = lava.transform.position;
-        if (playerpos.y < lavapos.y + MinPos) PitchUp();
-        if (playerpos.y > lavapos.y + MaxPos) PitchDown();
+        if (playerpos.y < lavapos.y + MinPos)
+        {
+            PitchUp();
+            AlarmOn();
+        }else if (playerpos.y > lavapos.y + MaxPos)
+        {
+            PitchDown();
+            AlarmOff();
+        }
         if (playerpos.y < lavapos.y) ShutDown();
     }
 
@@ -59,6 +69,25 @@ public class MusicSpeedup : MonoBehaviour
         if (audioSource.volume > 0f)
         {
             audioSource.volume -= 0.025f;
+        }
+    }
+
+    void AlarmOff()
+    {
+        // Lower the volume
+        if (alarmSource.volume <= 0f) return;
+        if (alarmSource.volume > 0f)
+        {
+            alarmSource.volume -= 0.05f;
+        }
+    }
+    void AlarmOn()
+    {
+        // Raise the volume
+        if (alarmSource.volume >= .5f) return;
+        if (alarmSource.volume > .5f)
+        {
+            alarmSource.volume += 0.05f;
         }
     }
 }
