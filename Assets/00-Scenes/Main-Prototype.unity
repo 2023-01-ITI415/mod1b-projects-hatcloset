@@ -444,6 +444,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5640388317610992394, guid: aa1da447a6b18ab4382a5024a9cac9e4, type: 3}
   m_PrefabInstance: {fileID: 5640388317821423444}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &225782885 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5640388317610992432, guid: aa1da447a6b18ab4382a5024a9cac9e4, type: 3}
+  m_PrefabInstance: {fileID: 5640388317821423444}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &452950934
 GameObject:
   m_ObjectHideFlags: 0
@@ -945,12 +950,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51fc58789dced434184dbcad7c75fc18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  POI: {fileID: 225782878}
-  Lava: {fileID: 89483616}
-  easing: 0.05
-  minXY: {x: 0, y: 0}
-  camX: 0
-  camZ: 0
+  target: {fileID: 225782885}
 --- !u!1 &796553604
 GameObject:
   m_ObjectHideFlags: 0
@@ -1570,6 +1570,7 @@ GameObject:
   - component: {fileID: 1459311945}
   - component: {fileID: 1459311947}
   - component: {fileID: 1459311946}
+  - component: {fileID: 1459311948}
   m_Layer: 5
   m_Name: HighScorer
   m_TagString: Untagged
@@ -1630,7 +1631,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Highscore: 0'
+  m_Text: 'Highscore: 1,000'
 --- !u!222 &1459311947
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1639,6 +1640,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1459311944}
   m_CullTransparentMesh: 1
+--- !u!114 &1459311948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1459311944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8120ca969261e904ca96885cadc94590, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetHighScoreNow: 0
 --- !u!1001 &1525182918
 PrefabInstance:
   m_ObjectHideFlags: 0

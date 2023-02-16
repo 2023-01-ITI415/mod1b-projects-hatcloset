@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraFollow : MonoBehaviour
+public class CameraFollow1 : MonoBehaviour
 {
-    static private CameraFollow S;
-    public GameObject POI;
-    public GameObject Lava;
+    static private CameraFollow1 S;
+    static public Transform Target;
+    static public Transform BadTarget;
 
     [Header("Inscribed")]
     public float easing = 0.05f;
@@ -25,11 +25,11 @@ public class CameraFollow : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector3 destination = POI.transform.position;
-        if (Lava.transform.position.y + 10 > destination.y)
+        Vector3 destination = Vector3.zero;
+        if (BadTarget.transform.position.y + 10 > destination.y)
         {
-            POI = Lava;
-        }
+            destination = BadTarget.transform.position;
+        } else destination = Target.transform.position;
         destination = Vector3.Lerp(transform.position, destination, easing);
         // Limit the minimum values of destination.y
         destination.y = Mathf.Max(minY.y, destination.y);

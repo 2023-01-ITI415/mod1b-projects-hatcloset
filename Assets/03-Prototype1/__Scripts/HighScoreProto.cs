@@ -32,7 +32,7 @@ public class HighScoreProto : MonoBehaviour
             PlayerPrefs.SetInt("HighScorer", value);
             if (_UI_TEXT != null)
             {
-                _UI_TEXT.text = "High Score: " + value.ToString("#,0");
+                _UI_TEXT.text = "HighScore: " + value.ToString("#,0");
             }
         }
     }
