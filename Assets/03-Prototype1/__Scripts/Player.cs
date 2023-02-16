@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public bool dead = false;
     private Rigidbody rb;
     private bool jumpStored;
     // public float xbounds = 19.5f;
@@ -14,19 +15,22 @@ public class Player : MonoBehaviour
     }
     void Update()
     {
-        // Adjust directional movement for the player
-        float dirX = Input.GetAxis("Horizontal");
-        rb.velocity = new Vector2(dirX * 10f, rb.velocity.y);
-
-        // Jump once when W or Up are pressed
-        if (jumpStored == true)
+        if (!dead)
         {
-            if (Input.GetButtonDown("Jump"))
+            // Adjust directional movement for the player
+            float dirX = Input.GetAxis("Horizontal");
+            rb.velocity = new Vector2(dirX * 10f, rb.velocity.y);
+
+            // Jump once when W or Up are pressed
+            if (jumpStored == true)
             {
-                rb.velocity = new Vector2(rb.velocity.x, 10f);
-                jumpStored = false;
+                if (Input.GetButtonDown("Jump"))
+                {
+                    rb.velocity = new Vector2(rb.velocity.x, 10f);
+                    jumpStored = false;
+                }
             }
-        }   
+        }
     }
     void OnCollisionEnter(Collision coll)
     {
@@ -34,6 +38,10 @@ public class Player : MonoBehaviour
         if (collidedWith.CompareTag("JumpGround"))
         {
             jumpStored = true;
+        }
+        if (collidedWith.CompareTag("Lava"))
+        {
+            dead = true;
         }
     }
 }
