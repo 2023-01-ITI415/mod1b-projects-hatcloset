@@ -15,12 +15,12 @@ public class HighScoreProto : MonoBehaviour
         _UI_TEXT = GetComponent<Text>();
 
         // If the PlayerPrefs HighScore already exists, read it
-        if (PlayerPrefs.HasKey("HighScore"))
+        if (PlayerPrefs.HasKey("HighScorer"))
         {
-            SCORE = PlayerPrefs.GetInt("HighScore");
+            SCORE = PlayerPrefs.GetInt("HighScorer");
         }
         // Assign the high score to HighScore
-        PlayerPrefs.SetInt("HighScore", SCORE);
+        PlayerPrefs.SetInt("HighScorer", SCORE);
     }
 
     static public int SCORE
@@ -29,7 +29,7 @@ public class HighScoreProto : MonoBehaviour
         private set
         {
             _SCORE = value;
-            PlayerPrefs.SetInt("HighScore", value);
+            PlayerPrefs.SetInt("HighScorer", value);
             if (_UI_TEXT != null)
             {
                 _UI_TEXT.text = "High Score: " + value.ToString("#,0");
@@ -51,7 +51,7 @@ public class HighScoreProto : MonoBehaviour
         if (resetHighScoreNow)
         {
             resetHighScoreNow = false;
-            PlayerPrefs.SetInt("HighScore", 1000);
+            PlayerPrefs.SetInt("HighScorer", 1000);
             Debug.LogWarning("PlayerPrefs HighScore reset to 1,000.");
         }
     }

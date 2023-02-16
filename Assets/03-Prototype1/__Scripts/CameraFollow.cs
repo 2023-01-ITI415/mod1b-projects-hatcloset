@@ -6,6 +6,7 @@ public class CameraFollow : MonoBehaviour
 {
     static private CameraFollow S;
     public GameObject POI;
+    public GameObject Lava;
 
     [Header("Inscribed")]
     public float easing = 0.05f;
@@ -24,9 +25,11 @@ public class CameraFollow : MonoBehaviour
 
     void FixedUpdate()
     {
-        POI = GameObject.Find("Player");
-        Vector3 destination = Vector3.zero;
-        destination = POI.transform.position;
+        Vector3 destination = POI.transform.position;
+        if (Lava.transform.position.y + 10 > destination.y)
+        {
+            POI = Lava;
+        }
         destination = Vector3.Lerp(transform.position, destination, easing);
         // Limit the minimum values of destination.y
         destination.y = Mathf.Max(minXY.y, destination.y);

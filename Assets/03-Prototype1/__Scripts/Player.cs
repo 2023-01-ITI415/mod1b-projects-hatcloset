@@ -64,6 +64,7 @@ public class Player : MonoBehaviour
         {
             Player.dead = true;
             audioSource.PlayOneShot(deathSound);
+            
         }
     }
 }
