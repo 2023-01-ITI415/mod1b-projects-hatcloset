@@ -39,7 +39,7 @@ public class MusicSpeedup : MonoBehaviour
             PitchDown();
             AlarmOff();
         }
-        if (playerpos.y < lavapos.y) ShutDown();
+        if (playerpos.y < lavapos.y + 10) ShutDown();
     }
 
     void PitchUp()
@@ -85,7 +85,7 @@ public class MusicSpeedup : MonoBehaviour
     {
         // Raise the volume
         if (alarmSource.volume >= .5f) return;
-        if (alarmSource.volume > .5f)
+        if (alarmSource.volume < .5f)
         {
             alarmSource.volume += 0.05f;
         }

@@ -4,18 +4,27 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public bool dead = false;
+    public static bool dead = false;
     private Rigidbody rb;
     private bool jumpStored;
     // public float xbounds = 19.5f;
+    public ScoreCount scoreCount;
+    public AudioSource audioSource;
+    public AudioClip coinSound;
+    public AudioClip deathSound;
 
     void Start()
     {
+        // Find the Rigidbody
         rb = GetComponent<Rigidbody>();
+        // Find a GameObject named ScoreCounter in the Scene Hierarchy
+        GameObject scoreGO = GameObject.Find("ScoreCount");
+        // Get the ScoreCounter (Script) component of scoreGO
+        scoreCount = scoreGO.GetComponent<ScoreCount>();
     }
     void Update()
     {
-        if (!dead)
+        if (!Player.dead)
         {
             // Adjust directional movement for the player
             float dirX = Input.GetAxis("Horizontal");
@@ -39,9 +48,21 @@ public class Player : MonoBehaviour
         {
             jumpStored = true;
         }
-        if (collidedWith.CompareTag("Lava"))
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Coin"))
         {
-            dead = true;
+            Destroy(other.gameObject);
+            audioSource.PlayOneShot(coinSound);
+            scoreCount.score += 100;
+            HighScoreProto.TRY_SET_HIGH_SCORE(scoreCount.score);
+        }
+        if (other.gameObject.CompareTag("Lava"))
+        {
+            Player.dead = true;
+            audioSource.PlayOneShot(deathSound);
         }
     }
 }
