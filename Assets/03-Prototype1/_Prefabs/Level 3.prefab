@@ -651,7 +651,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b77186596b565e847adb8b7ea93e6a2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lavaPos: {fileID: 6741714990540277183, guid: 407a3b5568b15b64eb17cdb43b816dcb, type: 3}
+  lava: {fileID: 6741714990540277182, guid: 407a3b5568b15b64eb17cdb43b816dcb, type: 3}
+  lavaPos: 0
 --- !u!1 &2063311310365147728
 GameObject:
   m_ObjectHideFlags: 0

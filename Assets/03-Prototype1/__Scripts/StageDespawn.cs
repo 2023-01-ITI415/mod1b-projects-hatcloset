@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class StageDespawn : MonoBehaviour
 {
-    public Transform lavaPos;
-    public float bottomY;
+    public GameObject lava;
+    public float lavaPos;
 
-    void FixedUpdate()
+    void Update()
     {
-        bottomY = lavaPos.position.y - 10;
-        if (transform.position.y < bottomY)
+        lavaPos = lava.transform.position.y;
+        if (this.transform.position.y < lavaPos)
         {
-            Destroy(this.gameObject);
+            Destroy(this);
         }
     }
 }

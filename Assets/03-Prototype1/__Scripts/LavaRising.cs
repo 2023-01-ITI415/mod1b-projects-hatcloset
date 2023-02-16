@@ -16,7 +16,7 @@ public class LavaRising : MonoBehaviour
     {
         if(playerPos.position.y != 0)
         {
-            if (lavaSpeed < 0.08) lavaSpeed += 0.00005f;
+            if (lavaSpeed < 0.07) lavaSpeed += 0.00003f;
             Vector3 pos = this.transform.position;
             pos.y += lavaSpeed;
             this.transform.position = pos;

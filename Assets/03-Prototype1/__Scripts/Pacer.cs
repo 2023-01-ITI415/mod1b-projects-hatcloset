@@ -13,6 +13,7 @@ public class Pacer : MonoBehaviour
     public GameObject lava;
     public float MinPos = 14;
     public float MaxPos = 16;
+    public bool musicPlaying;
 
     void Start()
     {
@@ -21,13 +22,23 @@ public class Pacer : MonoBehaviour
         audioSource.volume = 1.00f;
         // Mute alarmSource
         alarmSource.volume = 0.00f;
-        // Play the intro into the loop
-        audioSource.PlayOneShot(audioIntro);
-        audioSource.PlayScheduled(AudioSettings.dspTime + audioIntro.length);
+        musicPlaying = false;
+
     }
 
+    void Music()
+    {
+        if (lava.transform.position.y > -20 && musicPlaying == false)
+        {
+            // Play the intro into the loop
+            audioSource.PlayOneShot(audioIntro);
+            audioSource.PlayScheduled(AudioSettings.dspTime + audioIntro.length);
+            musicPlaying = true;
+        }
+    }
     void FixedUpdate()
     {
+        Music();
         // Detect distance between player and lava
         Vector2 playerpos = player.transform.position;
         Vector2 lavapos = lava.transform.position;
