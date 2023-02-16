@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public static bool dead = false;
+    public static bool dead;
     private Rigidbody rb;
     private bool jumpStored;
     // public float xbounds = 19.5f;
@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        dead = false;
         // Find the Rigidbody
         rb = GetComponent<Rigidbody>();
         // Find a GameObject named ScoreCounter in the Scene Hierarchy

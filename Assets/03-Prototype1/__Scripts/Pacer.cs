@@ -45,7 +45,7 @@ public class Pacer : MonoBehaviour
         {
             ShutDown();
             AlarmOff();
-            if (alarmSource.volume <= 0)
+            if (audioSource.volume <= 0)
                 // Restart the game once the music dies
                 SceneManager.LoadScene("Main-Prototype");
         }
@@ -77,7 +77,7 @@ public class Pacer : MonoBehaviour
         if (audioSource.volume <= 0f) return;
         if (audioSource.volume > 0f)
         {
-            audioSource.volume -= 0.025f;
+            audioSource.volume -= 0.005f;
         }
     }
 
