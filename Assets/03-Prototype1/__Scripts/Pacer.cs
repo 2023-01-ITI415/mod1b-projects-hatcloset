@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class MusicSpeedup : MonoBehaviour
+public class Pacer : MonoBehaviour
 {
     [Header("Inscribed")]
     public AudioSource audioSource;
@@ -34,12 +35,20 @@ public class MusicSpeedup : MonoBehaviour
         {
             PitchUp();
             AlarmOn();
-        }else if (playerpos.y > lavapos.y + MaxPos)
+        }
+        else if (playerpos.y > lavapos.y + MaxPos)
         {
             PitchDown();
             AlarmOff();
         }
-        if (playerpos.y < lavapos.y + 10) ShutDown();
+        if (playerpos.y < lavapos.y + 10)
+        {
+            ShutDown();
+            AlarmOff();
+            if (alarmSource.volume <= 0)
+                // Restart the game once the music dies
+                SceneManager.LoadScene("Main-Prototype");
+        }
     }
 
     void PitchUp()
