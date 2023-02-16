@@ -14,8 +14,9 @@ public class MusicSpeedup : MonoBehaviour
 
     void Start()
     {
-        // Set initial pitch of song
+        // Set initial pitch and volume of song
         audioSource.pitch = 1.00f;
+        audioSource.volume = 1.00f;
         // Play the intro into the loop
         audioSource.PlayOneShot(audioIntro);
         audioSource.PlayScheduled(AudioSettings.dspTime + audioIntro.length);
@@ -28,6 +29,7 @@ public class MusicSpeedup : MonoBehaviour
         Vector2 lavapos = lava.transform.position;
         if (playerpos.y < lavapos.y + MinPos) PitchUp();
         if (playerpos.y > lavapos.y + MaxPos) PitchDown();
+        if (playerpos.y < lavapos.y) ShutDown();
     }
 
     void PitchUp()
@@ -47,6 +49,16 @@ public class MusicSpeedup : MonoBehaviour
         if (audioSource.pitch > 1.00f)
         {
             audioSource.pitch -= 0.0025f;
+        }
+    }
+
+    void ShutDown()
+    {
+        // Lower the volume
+        if (audioSource.volume <= 0f) return;
+        if (audioSource.volume > 0f)
+        {
+            audioSource.volume -= 0.025f;
         }
     }
 }
