@@ -35,7 +35,7 @@ public class Player : MonoBehaviour
             // Jump once when W or Up are pressed
             if (Input.GetButtonDown("Duck"))
             {
-                rb.velocity = new Vector2(rb.velocity.x, -10f);
+                rb.velocity = new Vector2(rb.velocity.x, -40f);
                 audioSource.PlayOneShot(dashSound);
             }
             if (jumpStored == true)
