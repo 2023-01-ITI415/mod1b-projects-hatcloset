@@ -9,8 +9,10 @@ public class LavaPit : MonoBehaviour
     [Header("Inscribed")]
 
     public Text heightMark;
+    public Text lavaHeightMark;
     public Vector3 stagePos;
     public Transform playerPos;
+    public Transform lavaPos;
     public GameObject[] stages;
 
     [Header("Dynamic")]
@@ -33,10 +35,14 @@ public class LavaPit : MonoBehaviour
     void Update()
     {
         StageConveyor();
-        // Update Height
+        // Update Heights
         if (playerPos.position.y >= 0)
         {
             heightMark.text = ((int)playerPos.position.y + 10).ToString("#,0") + " FT";
+        }
+        if (lavaPos.position.y >= -20)
+        {
+            lavaHeightMark.text = "Lava: "+ ((int)lavaPos.position.y + 20).ToString("#,0") + " FT";
         }
     }
 

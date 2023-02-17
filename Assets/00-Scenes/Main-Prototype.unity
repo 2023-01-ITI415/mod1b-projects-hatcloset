@@ -208,6 +208,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6741714990540277182, guid: 407a3b5568b15b64eb17cdb43b816dcb, type: 3}
   m_PrefabInstance: {fileID: 6741714990492888286}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &89483622 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6741714990540277183, guid: 407a3b5568b15b64eb17cdb43b816dcb, type: 3}
+  m_PrefabInstance: {fileID: 6741714990492888286}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &225782878 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5640388317610992394, guid: aa1da447a6b18ab4382a5024a9cac9e4, type: 3}
@@ -622,6 +627,7 @@ RectTransform:
   - {fileID: 1459311945}
   - {fileID: 1454187373}
   - {fileID: 54994305}
+  - {fileID: 1059235479}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -747,8 +753,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heightMark: {fileID: 54994307}
+  lavaHeightMark: {fileID: 1059235480}
   stagePos: {x: 0, y: 0, z: 0}
   playerPos: {fileID: 225782885}
+  lavaPos: {fileID: 89483622}
   stages:
   - {fileID: 2063311309902133162, guid: 1a4d79c392b8bee4098b65cc687cb564, type: 3}
   - {fileID: 2063311309902133162, guid: fe824817378c16c47967f776714fd41d, type: 3}
@@ -760,6 +768,86 @@ MonoBehaviour:
   maxStages: 0
   whichStage: 0
   previousStage: 0
+--- !u!1 &1059235478
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1059235479}
+  - component: {fileID: 1059235481}
+  - component: {fileID: 1059235480}
+  m_Layer: 5
+  m_Name: LavaHeightMark
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1059235479
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059235478}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 600655664}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -20, y: -40}
+  m_SizeDelta: {x: 600, y: 16}
+  m_Pivot: {x: 1, y: 1}
+--- !u!114 &1059235480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059235478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 2ab08875545a81349b8b1ff1047839be, type: 3}
+    m_FontSize: 8
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 40
+    m_Alignment: 2
+    m_AlignByGeometry: 1
+    m_RichText: 0
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'LAVA: 0 FT'
+--- !u!222 &1059235481
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059235478}
+  m_CullTransparentMesh: 1
 --- !u!1 &1298807828
 GameObject:
   m_ObjectHideFlags: 0
