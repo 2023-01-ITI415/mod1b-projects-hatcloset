@@ -13,9 +13,11 @@ public class Player : MonoBehaviour
     public AudioClip coinSound;
     public AudioClip deathSound;
     public AudioClip dashSound;
+    public float scoreMultiply;
 
     void Start()
     {
+        scoreMultiply = 1f;
         dead = false;
         // Find the Rigidbody
         rb = GetComponent<Rigidbody>();
@@ -64,7 +66,7 @@ public class Player : MonoBehaviour
         {
             Destroy(other.gameObject);
             audioSource.PlayOneShot(coinSound);
-            scoreCount.score += 100;
+            scoreCount.score += (int)(100f * scoreMultiply);
             HighScoreProto.TRY_SET_HIGH_SCORE(scoreCount.score);
         }
         if (other.gameObject.CompareTag("Lava"))
@@ -73,5 +75,10 @@ public class Player : MonoBehaviour
             audioSource.PlayOneShot(deathSound);
             
         }
+    }
+
+    public void multiplyScore()
+    {
+        scoreMultiply += 0.1f;
     }
 }

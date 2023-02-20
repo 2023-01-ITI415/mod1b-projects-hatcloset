@@ -38,12 +38,13 @@ public class LavaPit : MonoBehaviour
         // Update Heights
         if (playerPos.position.y >= 0)
         {
-            heightMark.text = ((int)playerPos.position.y + 10).ToString("#,0") + " FT";
+            heightMark.text = ((int)playerPos.position.y).ToString("#,0") + " FT";
         }
-        if (lavaPos.position.y >= -20)
+        if (lavaPos.position.y <= playerPos.position.y - 21)
         {
-            lavaHeightMark.text = "Lava: "+ ((int)lavaPos.position.y + 20).ToString("#,0") + " FT";
+            lavaHeightMark.text = "Lava > " + (((int)playerPos.position.y) - ((int)lavaPos.position.y) - 20).ToString("#,0") + " FT";
         }
+        else if (lavaPos.position.y > playerPos.position.y - 21) lavaHeightMark.text = " ";
     }
 
     void StageConveyor()

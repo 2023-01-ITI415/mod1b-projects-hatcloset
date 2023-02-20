@@ -11,15 +11,15 @@ public class Pacer : MonoBehaviour
     public AudioClip audioIntro;
     public GameObject player;
     public GameObject lava;
-    public float MinPos = 14;
-    public float MaxPos = 16;
+    public float MinPos = 16f;
+    public float MaxPos = 24f;
     public bool musicPlaying;
 
     void Start()
     {
         // Set initial pitch and volume of song
         audioSource.pitch = 1.00f;
-        audioSource.volume = 1.00f;
+        audioSource.volume = .80f;
         // Mute alarmSource
         alarmSource.volume = 0.00f;
         musicPlaying = false;
@@ -88,7 +88,7 @@ public class Pacer : MonoBehaviour
         if (audioSource.volume <= 0f) return;
         if (audioSource.volume > 0f)
         {
-            audioSource.volume -= 0.005f;
+            audioSource.volume -= 0.004f;
         }
     }
 
